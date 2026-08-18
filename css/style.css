@@ -86,6 +86,24 @@ h1,h2,h3,h4{color:var(--navy-dark);font-weight:800;line-height:1.2}
 .value-card h3{font-size:16px;margin-bottom:10px}
 .value-card p{color:var(--gray);font-size:13px;line-height:1.75}
 
+/* Service tiles */
+.service-tile-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.service-tile{position:relative;border-radius:14px;padding:32px;min-height:190px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;transition:.25s;color:#fff}
+.service-tile:hover{transform:translateY(-5px);box-shadow:0 22px 42px rgba(15,36,56,.22)}
+.service-tile-icon{width:50px;height:50px;background:rgba(255,255,255,.16);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.service-tile-icon svg{width:26px;height:26px}
+.service-tile-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
+.service-tile h3{color:#fff;font-size:18px;margin-bottom:6px}
+.service-tile p{color:rgba(255,255,255,.82);font-size:12.5px;line-height:1.6;max-width:230px}
+.service-tile .tile-arrow{flex:none;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;transition:.25s}
+.service-tile .tile-arrow svg{width:16px;height:16px}
+.service-tile:hover .tile-arrow{background:#fff}
+.service-tile:hover .tile-arrow svg{stroke:#101216}
+.service-tile.copper{background:linear-gradient(135deg,#dd9354,#c8752f 60%,#a85f22)}
+.service-tile.navy{background:linear-gradient(135deg,#2c5580,#1b3a5c 60%,#0f2438)}
+.service-tile.gray{background:linear-gradient(135deg,#5a6674,#45505f 60%,#2c343f)}
+.service-tile.teal{background:linear-gradient(135deg,#2f8f88,#1f6a64 60%,#123f3c)}
+
 /* Products */
 .product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
 .product-card{background:#fff;border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:.25s;display:flex;flex-direction:column}
@@ -193,6 +211,9 @@ h1,h2,h3,h4{color:var(--navy-dark);font-weight:800;line-height:1.2}
 .nav{display:none}.menu{display:block}
 .value-grid,.industry-grid,.cert-grid{grid-template-columns:1fr 1fr}
 .product-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+.service-tile-grid{grid-template-columns:1fr}
 }
 @media(max-width:900px){
 .about-grid,.contact-grid{grid-template-columns:1fr}
