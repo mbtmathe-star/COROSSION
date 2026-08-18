@@ -45,7 +45,7 @@ h1,h2,h3,h4{color:var(--navy-dark);font-weight:800;line-height:1.2}
 
 /* Hero */
 .hero{background:linear-gradient(120deg,var(--navy-dark) 0%,var(--navy) 55%,var(--navy-light) 100%);position:relative;overflow:hidden;padding:90px 0 110px}
-.hero:before{content:"";position:absolute;inset:0;background:url("https://images.unsplash.com/photo-1565793298595-6a879b1d9492?auto=format&fit=crop&w=2200&q=60") center/cover;opacity:.14;mix-blend-mode:overlay}
+.hero:before{content:"";position:absolute;inset:0;background:url("../img/industry-pipeline.jpg") center/cover;opacity:.16;mix-blend-mode:overlay}
 .hero-inner{position:relative;z-index:1;max-width:720px}
 .eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#dfe6ee;font-size:11.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:8px 16px;border-radius:30px;margin-bottom:24px}
 .eyebrow span{color:var(--copper-light)}
@@ -130,7 +130,7 @@ h1,h2,h3,h4{color:var(--navy-dark);font-weight:800;line-height:1.2}
 
 /* CTA band */
 .cta-band{background:linear-gradient(120deg,var(--navy-dark),var(--navy));padding:80px 0;text-align:center;position:relative;overflow:hidden}
-.cta-band:before{content:"";position:absolute;inset:0;background:url("https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=2200&q=60") center/cover;opacity:.12;mix-blend-mode:overlay}
+.cta-band:before{content:"";position:absolute;inset:0;background:url("../img/industry-tanks.jpg") center/cover;opacity:.14;mix-blend-mode:overlay}
 .cta-band-inner{position:relative;z-index:1;max-width:640px;margin:auto}
 .cta-band h2{color:#fff;font-size:32px;margin-bottom:16px}
 .cta-band p{color:#cdd8e4;font-size:14.5px;margin-bottom:30px}
@@ -176,7 +176,7 @@ h1,h2,h3,h4{color:var(--navy-dark);font-weight:800;line-height:1.2}
 
 /* Page banner (inner pages) */
 .page-banner{background:linear-gradient(120deg,var(--navy-dark),var(--navy));padding:60px 0 50px;position:relative;overflow:hidden}
-.page-banner:before{content:"";position:absolute;inset:0;background:url("https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2200&q=60") center/cover;opacity:.13;mix-blend-mode:overlay}
+.page-banner:before{content:"";position:absolute;inset:0;background:url("../img/composite-riser-install.jpg") center/cover;opacity:.15;mix-blend-mode:overlay}
 .page-banner-inner{position:relative;z-index:1}
 .page-banner h1{color:#fff;font-size:36px}
 .breadcrumb{margin-top:14px;font-size:12.5px;color:#aebccc}
