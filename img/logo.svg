@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 130">
+<path d="M60 4 L112 22 V64 C112 96 90 116 60 126 C30 116 8 96 8 64 V22 Z" fill="#ffffff" stroke="#1b3a5c" stroke-width="6"/>
+<path d="M60 10 L106 26 V64 C106 92 87 110 60 119 C33 110 14 92 14 64 V26 Z" fill="#1b3a5c"/>
+<circle cx="60" cy="62" r="30" fill="none" stroke="#c8752f" stroke-width="7"/>
+<rect x="34" y="58" width="52" height="8" rx="4" fill="#e7ecf1" transform="rotate(-18 60 62)"/>
+<text x="60" y="105" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="1">CMS</text>
+</svg>
