@@ -129,6 +129,22 @@ h1,h2,h3,h4{color:var(--navy-dark);font-weight:800;line-height:1.2}
 .service-tile.gray{background:linear-gradient(135deg,#5a6674,#45505f 60%,#2c343f)}
 .service-tile.teal{background:linear-gradient(135deg,#2f8f88,#1f6a64 60%,#123f3c)}
 
+/* Elegant carousel */
+.carousel{position:relative}
+.carousel-track{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding:4px 4px 8px;scrollbar-width:none}
+.carousel-track::-webkit-scrollbar{display:none}
+.carousel-slide{scroll-snap-align:start;flex:0 0 320px}
+.carousel-slide.product-slide{flex:0 0 300px}
+.carousel-arrow{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;background:#fff;border:1px solid var(--border);box-shadow:0 10px 24px rgba(15,36,56,.14);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:2;transition:.2s;color:var(--navy-dark)}
+.carousel-arrow svg{width:18px;height:18px}
+.carousel-arrow:hover{background:var(--navy);color:#fff;border-color:var(--navy)}
+.carousel-arrow.prev{left:-22px}
+.carousel-arrow.next{right:-22px}
+.carousel-arrow[disabled]{opacity:.35;cursor:default;pointer-events:none}
+.carousel-dots{display:flex;justify-content:center;gap:8px;margin-top:30px}
+.carousel-dots button{width:8px;height:8px;padding:0;border:0;border-radius:50%;background:var(--border);cursor:pointer;transition:.25s}
+.carousel-dots button.active{background:var(--copper);width:24px;border-radius:4px}
+
 /* Products */
 .product-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
 .product-card{background:#fff;border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:.25s;display:flex;flex-direction:column}
@@ -283,4 +299,6 @@ h1,h2,h3,h4{color:var(--navy-dark);font-weight:800;line-height:1.2}
 .hero-full{height:88vh;min-height:520px}
 .hero-full-grid>div:nth-child(1),.hero-full-grid>div:nth-child(5){display:none}
 .pill-btn-label{padding:15px 22px;font-size:13px}
+.carousel-arrow{display:none}
+.carousel-slide,.carousel-slide.product-slide{flex-basis:82vw}
 }
