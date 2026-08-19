@@ -44,7 +44,7 @@ h1,h2,h3,h4{color:var(--navy-dark);font-weight:800;line-height:1.2}
 .btn-outline-white:hover{background:#fff;color:var(--navy-dark)}
 
 /* Hero (full-screen photo, grid dividers, pill CTA) */
-.hero-full{position:relative;height:100vh;min-height:600px;max-height:920px;display:flex;align-items:center;overflow:hidden;color:#fff;padding-bottom:110px}
+.hero-full{position:relative;height:100vh;min-height:600px;max-height:920px;display:flex;align-items:center;overflow:hidden;color:#fff;padding-bottom:180px}
 .hero-full-bg{position:absolute;inset:0;background-size:cover;background-position:center}
 .hero-full-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(9,20,32,.55),rgba(9,20,32,.72))}
 .hero-full-grid{position:absolute;inset:0;z-index:1;display:flex;pointer-events:none}
@@ -76,14 +76,14 @@ h1,h2,h3,h4{color:var(--navy-dark);font-weight:800;line-height:1.2}
 .pill-btn:hover .pill-btn-icon svg.arrow-2{transform:translateX(0)}
 
 /* Hero stats strip (overlaid on the hero photo, no separate background) */
-.hero-stats-inline{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:28px 0;border-top:1px solid rgba(255,255,255,.18)}
+.hero-stats-inline{position:absolute;left:0;right:0;bottom:44px;z-index:2;padding:28px 0;border-top:1px solid rgba(255,255,255,.18)}
 
 .eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#dfe6ee;font-size:11.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:8px 16px;border-radius:30px;margin-bottom:24px}
 .eyebrow span{color:var(--copper-light)}
 .hero-strip{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:0}
 .hero-strip-item{flex:1;min-width:180px;padding-right:24px}
-.hero-strip-item strong{display:block;color:#fff;font-size:30px;font-weight:800}
-.hero-strip-item span{color:#aebccc;font-size:12.5px;font-weight:600}
+.hero-strip-item strong{display:block;color:#fff;font-size:36px;font-weight:800;white-space:nowrap}
+.hero-strip-item span{color:#aebccc;font-size:13.5px;font-weight:600}
 
 /* Sections */
 .section{padding:100px 0}
