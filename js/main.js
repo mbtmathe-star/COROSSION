@@ -122,6 +122,27 @@ document.querySelectorAll(".carousel").forEach(carousel=>{
  });
 });
 
+// Sitewide scroll-reveal animation (progressive enhancement — elements
+// stay visible by default; JS hides them only once it's ready to reveal)
+(function(){
+ const reduceMotion=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+ if(reduceMotion||!("IntersectionObserver" in window)) return;
+ const targets=document.querySelectorAll(
+   ".section-header, .value-card, .product-card, .industry-card, .cert-card, .about-image, .about-copy, .testimonial-tile, .contact-form-card, .contact-info-card, .process-diagram"
+ );
+ if(!targets.length) return;
+ targets.forEach(el=>el.classList.add("reveal-init"));
+ const observer=new IntersectionObserver(entries=>{
+   entries.forEach(entry=>{
+     if(entry.isIntersecting){
+       entry.target.classList.add("reveal-visible");
+       observer.unobserve(entry.target);
+     }
+   });
+ },{threshold:0.15});
+ targets.forEach(el=>observer.observe(el));
+})();
+
 // Contact forms (no backend — confirms client-side)
 document.querySelectorAll("form.ajax-form").forEach(form=>{
  form.addEventListener("submit",e=>{
