@@ -38,18 +38,23 @@ if(counters.length){
    }
    requestAnimationFrame(tick);
  };
- if("IntersectionObserver" in window){
-   const observer=new IntersectionObserver(entries=>{
-     entries.forEach(entry=>{
-       if(entry.isIntersecting){
-         animateCounter(entry.target);
-         observer.unobserve(entry.target);
-       }
-     });
-   },{threshold:0.4});
-   counters.forEach(el=>observer.observe(el));
- }else{
-   counters.forEach(animateCounter);
+ const immediate=[...counters].filter(el=>el.dataset.animate==="onload");
+ const deferred=[...counters].filter(el=>el.dataset.animate!=="onload");
+ immediate.forEach(animateCounter);
+ if(deferred.length){
+   if("IntersectionObserver" in window){
+     const observer=new IntersectionObserver(entries=>{
+       entries.forEach(entry=>{
+         if(entry.isIntersecting){
+           animateCounter(entry.target);
+           observer.unobserve(entry.target);
+         }
+       });
+     },{threshold:0.4});
+     deferred.forEach(el=>observer.observe(el));
+   }else{
+     deferred.forEach(animateCounter);
+   }
  }
 }
 
