@@ -1,3 +1,11 @@
+// Transparent-over-hero header that solidifies once you scroll
+const overlayHeader=document.querySelector(".header-overlay");
+if(overlayHeader){
+ const solidify=()=>overlayHeader.classList.toggle("header-solid",window.scrollY>40);
+ solidify();
+ window.addEventListener("scroll",solidify,{passive:true});
+}
+
 // Mobile nav toggle
 const menu=document.querySelector(".menu");
 const nav=document.querySelector(".nav");

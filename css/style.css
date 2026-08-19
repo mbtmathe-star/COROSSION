@@ -15,7 +15,24 @@ h1,h2,h3,h4{color:var(--navy-dark);font-weight:800;line-height:1.2}
 .topbar a:hover{color:var(--copper-light)}
 .topbar .flag{opacity:.85}
 
-.header{background:#fff;box-shadow:0 1px 0 var(--border);position:sticky;top:0;z-index:30}
+.header{background:#fff;box-shadow:0 1px 0 var(--border);position:sticky;top:0;z-index:30;transition:background .3s,box-shadow .3s}
+
+/* Homepage-only: header overlays the hero photo (transparent), solidifies on scroll */
+.header-overlay{background:transparent;box-shadow:none;margin-bottom:-86px}
+.header-overlay .logo-text strong{color:#fff;transition:color .3s}
+.header-overlay .logo-text span{color:var(--copper-light);transition:color .3s}
+.header-overlay .nav a{color:#fff;transition:color .3s}
+.header-overlay .nav a:hover,.header-overlay .nav a.active{color:var(--copper-light)}
+.header-overlay .nav a:after{background:var(--copper-light)}
+.header-overlay .menu{color:#fff;transition:color .3s}
+.header-overlay .nav.mobile-open a{color:var(--navy-dark)}
+.header-overlay.header-solid{background:#fff;box-shadow:0 1px 0 var(--border)}
+.header-overlay.header-solid .logo-text strong{color:var(--navy-dark)}
+.header-overlay.header-solid .logo-text span{color:var(--copper)}
+.header-overlay.header-solid .nav a{color:var(--navy-dark)}
+.header-overlay.header-solid .nav a:hover,.header-overlay.header-solid .nav a.active{color:var(--copper)}
+.header-overlay.header-solid .nav a:after{background:var(--copper)}
+.header-overlay.header-solid .menu{color:var(--navy-dark)}
 .header-inner{height:86px;display:flex;justify-content:space-between;align-items:center}
 .logo{display:flex;align-items:center;gap:12px}
 .logo img{height:58px;width:auto}
