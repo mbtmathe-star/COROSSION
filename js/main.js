@@ -83,7 +83,7 @@ document.querySelectorAll(".offer-list").forEach(list=>{
  const reduceMotion=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
  if(reduceMotion||!("IntersectionObserver" in window)) return;
  const targets=document.querySelectorAll(
-   ".section-header, .value-card, .offer-item, .offer-image-panel, .industry-card, .cert-card, .about-image, .about-copy, .contact-form-card, .contact-info-card, .process-diagram"
+   ".section-header, .value-card, .offer-item, .offer-image-panel, .industry-card, .cert-card, .about-image, .about-copy, .contact-form-card, .contact-info-card, .process-card, .marquee-viewport"
  );
  if(!targets.length) return;
  targets.forEach(el=>el.classList.add("reveal-init"));
