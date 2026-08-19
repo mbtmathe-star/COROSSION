@@ -21,6 +21,38 @@ menu.addEventListener("click",()=>{
 });
 }
 
+// Animated stat counters (count up from 0 when scrolled into view)
+const counters=document.querySelectorAll("[data-count]");
+if(counters.length){
+ const animateCounter=el=>{
+   const target=parseFloat(el.dataset.count);
+   const suffix=el.dataset.suffix||"";
+   const duration=1400;
+   const start=performance.now();
+   function tick(now){
+     const progress=Math.min((now-start)/duration,1);
+     const eased=1-Math.pow(1-progress,3);
+     const value=Math.round(target*eased);
+     el.textContent=value.toLocaleString()+suffix;
+     if(progress<1) requestAnimationFrame(tick);
+   }
+   requestAnimationFrame(tick);
+ };
+ if("IntersectionObserver" in window){
+   const observer=new IntersectionObserver(entries=>{
+     entries.forEach(entry=>{
+       if(entry.isIntersecting){
+         animateCounter(entry.target);
+         observer.unobserve(entry.target);
+       }
+     });
+   },{threshold:0.4});
+   counters.forEach(el=>observer.observe(el));
+ }else{
+   counters.forEach(animateCounter);
+ }
+}
+
 // Elegant carousel (arrow scroll + dot indicators)
 document.querySelectorAll(".carousel").forEach(carousel=>{
  const track=carousel.querySelector(".carousel-track");
@@ -85,16 +117,45 @@ document.querySelectorAll(".carousel").forEach(carousel=>{
  });
 });
 
-// Contact form (no backend — confirms client-side)
-const contactForm=document.getElementById("contact-form");
-if(contactForm){
-contactForm.addEventListener("submit",e=>{
- e.preventDefault();
- const note=document.getElementById("form-note");
- if(note){
-   note.textContent="Thanks — your enquiry has been noted. This demo form isn't connected to a server yet.";
-   note.classList.add("show");
- }
- contactForm.reset();
+// Contact forms (no backend — confirms client-side)
+document.querySelectorAll("form.ajax-form").forEach(form=>{
+ form.addEventListener("submit",e=>{
+   e.preventDefault();
+   const note=form.querySelector(".form-note");
+   if(note){
+     note.textContent="Thanks — your enquiry has been noted. This demo form isn't connected to a server yet.";
+     note.classList.add("show");
+   }
+   form.reset();
+ });
 });
+
+// Interactive process diagram (click/keyboard to step through)
+const processDiagram=document.querySelector(".process-diagram");
+if(processDiagram){
+ const cards=[...processDiagram.querySelectorAll(".process-card")];
+ const fill=processDiagram.querySelector(".process-fill");
+ function setActiveStep(index){
+   cards.forEach((c,i)=>c.classList.toggle("active",i===index));
+   if(fill){
+     const diagramRect=processDiagram.getBoundingClientRect();
+     const circleRect=cards[index].querySelector(".process-num").getBoundingClientRect();
+     const centerX=circleRect.left+circleRect.width/2-diagramRect.left;
+     fill.style.width=Math.max(0,centerX-22)+"px";
+   }
+ }
+ cards.forEach((card,i)=>{
+   card.setAttribute("tabindex","0");
+   card.setAttribute("role","button");
+   card.setAttribute("aria-label","Step "+(i+1));
+   card.addEventListener("click",()=>setActiveStep(i));
+   card.addEventListener("keydown",e=>{
+     if(e.key==="Enter"||e.key===" "){e.preventDefault();setActiveStep(i);}
+   });
+ });
+ setActiveStep(0);
+ window.addEventListener("resize",()=>{
+   const activeIndex=Math.max(0,cards.findIndex(c=>c.classList.contains("active")));
+   setActiveStep(activeIndex);
+ });
 }

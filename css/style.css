@@ -157,9 +157,13 @@ h1,h2,h3,h4{color:var(--navy-dark);font-weight:800;line-height:1.2}
 .process-diagram{position:relative}
 .process-line{position:absolute;top:30px;left:22px;right:22px;height:2px;background:var(--border);z-index:0}
 .process-line:after{content:"";position:absolute;right:-1px;top:50%;transform:translateY(-50%);width:0;height:0;border-top:5px solid transparent;border-bottom:5px solid transparent;border-left:7px solid var(--border)}
+.process-fill{position:absolute;top:30px;left:22px;height:2px;width:0;background:var(--copper);z-index:0;transition:width .45s ease}
 .process-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;counter-reset:step}
-.process-card{position:relative;padding-top:8px}
-.process-num{position:relative;width:44px;height:44px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;margin-bottom:20px}
+.process-card{position:relative;padding-top:8px;cursor:pointer;border-radius:8px;transition:.25s}
+.process-card:hover,.process-card.active{transform:translateY(-3px)}
+.process-card:focus-visible{outline:2px solid var(--copper);outline-offset:6px}
+.process-num{position:relative;width:44px;height:44px;border-radius:50%;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;margin-bottom:20px;transition:background .25s,transform .25s}
+.process-card:hover .process-num,.process-card.active .process-num{background:var(--copper);transform:scale(1.1)}
 .process-card h3{font-size:15.5px;margin-bottom:10px}
 .process-card p{color:var(--gray);font-size:13px;line-height:1.75}
 
@@ -179,6 +183,13 @@ h1,h2,h3,h4{color:var(--navy-dark);font-weight:800;line-height:1.2}
 .cta-band h2{color:#fff;font-size:32px;margin-bottom:16px}
 .cta-band p{color:#cdd8e4;font-size:14.5px;margin-bottom:30px}
 .cta-band .buttons{justify-content:center}
+
+.cta-band-grid{position:relative;z-index:1;max-width:1040px;margin:auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;text-align:left}
+.cta-band-grid h2{color:#fff;font-size:32px;margin-bottom:16px}
+.cta-band-grid p{color:#cdd8e4;font-size:14.5px;line-height:1.8}
+.cta-form{background:#fff;border-radius:10px;padding:32px}
+.cta-form .form-row:last-of-type{margin-bottom:16px}
+.cta-form .form-note{color:var(--copper)}
 
 /* Testimonials bento grid */
 .testimonial-bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr;gap:20px}
@@ -256,7 +267,7 @@ h1,h2,h3,h4{color:var(--navy-dark);font-weight:800;line-height:1.2}
 .product-grid{grid-template-columns:1fr 1fr}
 }
 @media(max-width:900px){
-.about-grid,.contact-grid{grid-template-columns:1fr}
+.about-grid,.contact-grid,.cta-band-grid{grid-template-columns:1fr}
 .hero-strip{flex-direction:column;gap:20px}
 .stats-grid{grid-template-columns:1fr 1fr;gap:24px}
 .process-grid{grid-template-columns:1fr 1fr}
